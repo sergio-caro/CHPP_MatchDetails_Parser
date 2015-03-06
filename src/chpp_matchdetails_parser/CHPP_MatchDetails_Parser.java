@@ -5,17 +5,56 @@
  */
 package chpp_matchdetails_parser;
 
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import match_details_v2_5.HattrickData;
+
 /**
  *
  * @author sergio
+ * @version 1.0
  */
 public class CHPP_MatchDetails_Parser {
 
     /**
+     * Executes the XML parsing.<br/>
+     * <b>NOTE</b>: This is Match Details <u>2.5 interface version</u>.
+     *
+     * @param input_file XML file as input
+     * @return a HattrickData object with the parsed information, null if errors.
+     * @throws java.lang.Exception Throws exception if something went wrong when parsing the file.
+     * @see
+     * <a href="http://www.hattrick.org/Community/CHPP/NewDocs/File.aspx?name=matchdetails">Go to Hattrick
+     * CHPP webpage for more information</a>
+     *
+     */
+    public static match_details_v2_5.HattrickData parse_match_details_v2_5(File input_file) throws Exception {
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(match_details_v2_5.HattrickData.class);
+            System.out.println("¿The file could be read? " + input_file.canRead());
+            if (input_file.canRead()) {
+                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                return (match_details_v2_5.HattrickData) jaxbUnmarshaller.unmarshal(input_file);
+            }
+        } catch (JAXBException ex) {
+            Logger.getLogger(CHPP_MatchDetails_Parser.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception("The file could not be parsed.");
+        }
+        return null;
+    }
+
+    /**
+     * Main class for testing the library
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
