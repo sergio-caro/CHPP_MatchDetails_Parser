@@ -39,7 +39,13 @@ public class CHPP_MatchDetails_Parser {
             System.out.println("¿The file could be read? " + input_file.canRead());
             if (input_file.canRead()) {
                 Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                return (match_details_v2_5.HattrickData) jaxbUnmarshaller.unmarshal(input_file);
+                match_details_v2_5.HattrickData ht_data = (match_details_v2_5.HattrickData) jaxbUnmarshaller.unmarshal(input_file);
+                
+                if(Float.toString(ht_data.getVersion()).equalsIgnoreCase("2.5")){
+                    return ht_data;
+                }else{
+                    throw new Exception("XML had an unsupported version (found "+Float.toString(ht_data.getVersion())+"), but this method requieres 2.5 version.");
+                }
             }
         } catch (JAXBException ex) {
             Logger.getLogger(CHPP_MatchDetails_Parser.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,7 +59,7 @@ public class CHPP_MatchDetails_Parser {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
     }
 
