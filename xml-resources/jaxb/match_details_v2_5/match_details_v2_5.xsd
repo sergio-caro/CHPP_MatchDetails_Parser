@@ -1,0 +1,146 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="FileName"/>
+        <xs:element type="xs:float" name="Version"/>
+        <xs:element type="xs:int" name="UserID"/>
+        <xs:element type="xs:string" name="FetchedDate"/>
+        <xs:element type="xs:string" name="UserSupporterTier"/>
+        <xs:element type="xs:string" name="SourceSystem"/>
+        <xs:element name="Match">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="MatchID"/>
+              <xs:element type="xs:byte" name="MatchType"/>
+              <xs:element type="xs:string" name="MatchDate"/>
+              <xs:element type="xs:string" name="FinishedDate"/>
+              <xs:element name="HomeTeam">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="HomeTeamID"/>
+                    <xs:element type="xs:string" name="HomeTeamName"/>
+                    <xs:element type="xs:anyURI" name="DressURI"/>
+                    <xs:element type="xs:string" name="Formation"/>
+                    <xs:element type="xs:byte" name="HomeGoals"/>
+                    <xs:element type="xs:byte" name="TacticType"/>
+                    <xs:element type="xs:byte" name="TacticSkill"/>
+                    <xs:element type="xs:byte" name="RatingMidfield"/>
+                    <xs:element type="xs:byte" name="RatingRightDef"/>
+                    <xs:element type="xs:byte" name="RatingMidDef"/>
+                    <xs:element type="xs:byte" name="RatingLeftDef"/>
+                    <xs:element type="xs:byte" name="RatingRightAtt"/>
+                    <xs:element type="xs:byte" name="RatingMidAtt"/>
+                    <xs:element type="xs:byte" name="RatingLeftAtt"/>
+                    <xs:element type="xs:byte" name="RatingIndirectSetPiecesDef"/>
+                    <xs:element type="xs:byte" name="RatingIndirectSetPiecesAtt"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="AwayTeam">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="AwayTeamID"/>
+                    <xs:element type="xs:string" name="AwayTeamName"/>
+                    <xs:element type="xs:anyURI" name="DressURI"/>
+                    <xs:element type="xs:string" name="Formation"/>
+                    <xs:element type="xs:byte" name="AwayGoals"/>
+                    <xs:element type="xs:byte" name="TacticType"/>
+                    <xs:element type="xs:byte" name="TacticSkill"/>
+                    <xs:element type="xs:byte" name="RatingMidfield"/>
+                    <xs:element type="xs:byte" name="RatingRightDef"/>
+                    <xs:element type="xs:byte" name="RatingMidDef"/>
+                    <xs:element type="xs:byte" name="RatingLeftDef"/>
+                    <xs:element type="xs:byte" name="RatingRightAtt"/>
+                    <xs:element type="xs:byte" name="RatingMidAtt"/>
+                    <xs:element type="xs:byte" name="RatingLeftAtt"/>
+                    <xs:element type="xs:byte" name="TeamAttitude"/>
+                    <xs:element type="xs:byte" name="RatingIndirectSetPiecesDef"/>
+                    <xs:element type="xs:byte" name="RatingIndirectSetPiecesAtt"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Arena">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="ArenaID"/>
+                    <xs:element type="xs:string" name="ArenaName"/>
+                    <xs:element type="xs:byte" name="WeatherID"/>
+                    <xs:element type="xs:int" name="SoldTotal"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="MatchOfficials">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Referee">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="RefereeId"/>
+                          <xs:element type="xs:string" name="RefereeName"/>
+                          <xs:element type="xs:byte" name="RefereeCountryId"/>
+                          <xs:element type="xs:string" name="RefereeCountryName"/>
+                          <xs:element type="xs:int" name="RefereeTeamId"/>
+                          <xs:element type="xs:string" name="RefereeTeamname"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="RefereeAssistant1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="RefereeId"/>
+                          <xs:element type="xs:string" name="RefereeName"/>
+                          <xs:element type="xs:byte" name="RefereeCountryId"/>
+                          <xs:element type="xs:string" name="RefereeCountryName"/>
+                          <xs:element type="xs:int" name="RefereeTeamId"/>
+                          <xs:element type="xs:string" name="RefereeTeamname"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="RefereeAssistant2">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="RefereeId"/>
+                          <xs:element type="xs:string" name="RefereeName"/>
+                          <xs:element type="xs:byte" name="RefereeCountryId"/>
+                          <xs:element type="xs:string" name="RefereeCountryName"/>
+                          <xs:element type="xs:int" name="RefereeTeamId"/>
+                          <xs:element type="xs:string" name="RefereeTeamname"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Scorers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Goal" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="ScorerPlayerID"/>
+                          <xs:element type="xs:string" name="ScorerPlayerName"/>
+                          <xs:element type="xs:int" name="ScorerTeamID"/>
+                          <xs:element type="xs:byte" name="ScorerHomeGoals"/>
+                          <xs:element type="xs:byte" name="ScorerAwayGoals"/>
+                          <xs:element type="xs:byte" name="ScorerMinute"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="Index" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="Bookings"/>
+              <xs:element type="xs:string" name="Injuries"/>
+              <xs:element type="xs:byte" name="PossessionFirstHalfHome"/>
+              <xs:element type="xs:byte" name="PossessionFirstHalfAway"/>
+              <xs:element type="xs:byte" name="PossessionSecondHalfHome"/>
+              <xs:element type="xs:byte" name="PossessionSecondHalfAway"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

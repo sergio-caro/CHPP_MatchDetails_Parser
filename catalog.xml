@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/sergio/NetBeansProjects/CHPP_MatchDetails_Parser/../xmls/match_details_v2_5.xsd" uri="xml-resources/jaxb/match_details_v2_5/match_details_v2_5.xsd"/>
+</catalog>
